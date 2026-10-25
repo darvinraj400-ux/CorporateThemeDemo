@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #14263D;
+  --color-deep-navy: #0D1929;
+  --color-professional-blue: #285AC5;
+  --color-bright-blue: #447FE8;
+  --color-pale-blue: #EAF1FB;
+  --color-corporate-white: #FFFFFF;
+  --color-soft-grey: #F4F6F9;
+  --color-slate: #667386;
+  --color-graphite: #293445;
+  --color-border-grey: #DCE2EA;
+  --color-muted-teal: #4E8A8A;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-graphite);
+    background-color: var(--color-corporate-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-professional-blue);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-pale-blue);
+    color: var(--color-navy);
+  }
+}
+
+@layer components {
+  .container-corporate {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-corporate {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-corporate {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+}
