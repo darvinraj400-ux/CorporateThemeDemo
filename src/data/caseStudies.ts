@@ -10,6 +10,7 @@ export interface CaseStudy {
   considerations: string[];
   outcomeSummary: string;
   isIllustrative: boolean;
+  image: string;
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -45,7 +46,8 @@ export const caseStudies: CaseStudy[] = [
       'Some process improvements required tool changes that needed separate planning'
     ],
     outcomeSummary: 'The organization gained clarity on process ownership and established a structured approach to ongoing improvement. Teams reported better alignment on responsibilities and more predictable project timelines.',
-    isIllustrative: true
+    isIllustrative: true,
+    image: 'https://image.qwenlm.ai/generated-images/8a167887-2faa-4ec7-bfda-e16ce448328c/_result.png'
   },
   {
     id: 'digital-transformation-plan',
@@ -79,7 +81,8 @@ export const caseStudies: CaseStudy[] = [
       'Some quick wins were identified to build momentum for longer-term initiatives'
     ],
     outcomeSummary: 'The leadership team gained a clear, prioritized view of their digital opportunities and a practical roadmap for implementation. The phased approach allowed them to start with high-impact, lower-risk initiatives while building capability for more complex changes.',
-    isIllustrative: true
+    isIllustrative: true,
+    image: 'https://image.qwenlm.ai/generated-images/8a8e5072-b761-42a2-80fd-3f320347c2d8/_result.png'
   },
   {
     id: 'strategic-alignment',
@@ -113,7 +116,8 @@ export const caseStudies: CaseStudy[] = [
       'Regular check-ins were built in to adjust priorities as conditions changed'
     ],
     outcomeSummary: 'The organization established a shared strategic framework that teams could reference when making decisions. Leadership gained a clear mechanism for evaluating new opportunities against agreed priorities, and teams reported improved clarity on where to focus their efforts.',
-    isIllustrative: true
+    isIllustrative: true,
+    image: 'https://image.qwenlm.ai/generated-images/eb3a4785-1c2a-4cb3-a2bb-d12f741cceb6/_result.png'
   },
   {
     id: 'change-management',
@@ -147,7 +151,8 @@ export const caseStudies: CaseStudy[] = [
       'The plan included built-in review points to adjust based on real feedback'
     ],
     outcomeSummary: 'The organization completed the operating model transition with maintained service quality. Teams reported that the structured approach and clear communication helped them navigate the change with confidence, and the built-in review mechanisms allowed for timely adjustments.',
-    isIllustrative: true
+    isIllustrative: true,
+    image: 'https://image.qwenlm.ai/generated-images/2e23b6ac-c399-4afb-b921-eb684652327f/_result.png'
   }
 ];
 

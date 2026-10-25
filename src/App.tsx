@@ -177,8 +177,17 @@ function Header({ onNavigate }: { onNavigate: (section: string) => void }) {
 // ─── HERO ───
 function Hero({ onNavigate }: { onNavigate: (section: string) => void }) {
   return (
-    <section id="hero" className="pt-28 md:pt-36 pb-16 md:pb-24 bg-white">
-      <div className="container-corporate">
+    <section id="hero" className="pt-28 md:pt-36 pb-16 md:pb-24 bg-white relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.015] pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(20,38,61,0.5) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+      {/* Decorative gradient */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-pale-blue/20 to-transparent pointer-events-none" />
+      <div className="container-corporate relative">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
             initial="hidden"
@@ -215,35 +224,44 @@ function Hero({ onNavigate }: { onNavigate: (section: string) => void }) {
             </motion.p>
           </motion.div>
 
+          {/* Mobile hero image */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="lg:hidden mt-8"
+          >
+            <div className="aspect-[16/9] rounded-lg overflow-hidden relative shadow-lg">
+              <img
+                src="https://image.qwenlm.ai/generated-images/52e9cbc3-e153-4a54-aeb0-ab47fe0a32a4/_result.png"
+                alt="Abstract architectural composition representing strategic clarity"
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
+            </div>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative hidden lg:block"
           >
-            <div className="aspect-[4/3] bg-gradient-to-br from-navy via-deep-navy to-navy rounded-lg overflow-hidden relative">
-              {/* Abstract geometric composition */}
-              <div className="absolute inset-0">
-                <div className="absolute top-8 left-8 right-8 bottom-8 border border-white/10 rounded" />
-                <div className="absolute top-16 left-16 w-32 h-32 border border-professional-blue/30 rounded-full" />
-                <div className="absolute bottom-16 right-16 w-48 h-48 border border-bright-blue/20 rounded-full" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-professional-blue/20 rounded-full blur-xl" />
-                <div className="absolute top-20 right-20 w-2 h-2 bg-bright-blue rounded-full" />
-                <div className="absolute bottom-24 left-24 w-2 h-2 bg-muted-teal rounded-full" />
-                <div className="absolute top-1/3 left-1/4 w-px h-24 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
-                <div className="absolute top-1/2 left-1/3 w-24 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-                <div className="absolute bottom-1/3 right-1/4 w-16 h-16 border border-white/5 rotate-45" />
-                {/* Grid lines */}
-                <div className="absolute inset-8 grid grid-cols-4 grid-rows-4 gap-px opacity-10">
-                  {Array.from({ length: 16 }).map((_, i) => (
-                    <div key={i} className="border border-white/30" />
-                  ))}
-                </div>
-              </div>
+            <div className="aspect-[4/3] rounded-lg overflow-hidden relative shadow-2xl">
+              <img
+                src="https://image.qwenlm.ai/generated-images/52e9cbc3-e153-4a54-aeb0-ab47fe0a32a4/_result.png"
+                alt="Abstract architectural composition representing strategic clarity and forward momentum"
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
-                <div className="text-white/60 text-xs font-mono">STRATEGY · OPERATIONS · DIGITAL · CHANGE</div>
-                <div className="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center">
-                  <ArrowUpRight className="w-3 h-3 text-white/60" />
+                <div className="text-white/80 text-xs font-mono backdrop-blur-sm bg-navy/30 px-3 py-1.5 rounded">
+                  STRATEGY · OPERATIONS · DIGITAL · CHANGE
+                </div>
+                <div className="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center backdrop-blur-sm bg-navy/20">
+                  <ArrowUpRight className="w-4 h-4 text-white" />
                 </div>
               </div>
             </div>
@@ -264,8 +282,15 @@ function TrustStrip() {
   ];
 
   return (
-    <section className="border-y border-border-grey bg-soft-grey py-8">
-      <div className="container-corporate">
+    <section className="border-y border-border-grey bg-soft-grey py-8 relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(90deg, transparent 49%, rgba(40,90,197,0.3) 50%, transparent 51%)`,
+          backgroundSize: '60px 60px'
+        }} />
+      </div>
+      <div className="container-corporate relative">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {items.map((item, i) => (
             <div key={i} className="flex items-center gap-3 justify-center md:justify-start">
@@ -284,8 +309,10 @@ function ExpertiseSection({ onNavigate, onSelectService }: { onNavigate: (sectio
   const serviceIcons = [Target, BarChart3, Cpu, Users];
 
   return (
-    <section id="expertise" className="section-padding bg-white">
-      <div className="container-corporate">
+    <section id="expertise" className="section-padding bg-white relative">
+      {/* Subtle decorative corner element */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-pale-blue/30 to-transparent pointer-events-none" />
+      <div className="container-corporate relative">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -365,8 +392,14 @@ function ApproachSection() {
   ];
 
   return (
-    <section id="approach" className="section-padding bg-soft-grey">
-      <div className="container-corporate">
+    <section id="approach" className="section-padding bg-soft-grey relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(20,38,61,0.5) 35px, rgba(20,38,61,0.5) 36px)`
+        }} />
+      </div>
+      <div className="container-corporate relative">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -423,8 +456,10 @@ function CaseStudiesSection({ onSelectCaseStudy }: { onSelectCaseStudy: (id: str
     : caseStudies.filter(cs => cs.serviceId === filter);
 
   return (
-    <section id="case-studies" className="section-padding bg-white">
-      <div className="container-corporate">
+    <section id="case-studies" className="section-padding bg-white relative">
+      {/* Subtle decorative element */}
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-pale-blue/20 to-transparent pointer-events-none -translate-x-1/2 translate-y-1/2" />
+      <div className="container-corporate relative">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -480,19 +515,22 @@ function CaseStudiesSection({ onSelectCaseStudy }: { onSelectCaseStudy: (id: str
                 transition={{ delay: i * 0.1 }}
                 className="border border-border-grey rounded-lg overflow-hidden hover:border-professional-blue/30 hover:shadow-sm transition-all group"
               >
-                <div className="h-40 bg-gradient-to-br from-navy to-deep-navy relative">
-                  <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                    <div className="w-24 h-24 border border-white/30 rounded-full" />
-                    <div className="absolute w-16 h-16 border border-white/20 rotate-45" />
-                  </div>
+                <div className="h-48 relative overflow-hidden">
+                  <img
+                    src={cs.image}
+                    alt={cs.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-navy/20 to-transparent" />
                   <div className="absolute bottom-3 left-4">
-                    <span className="text-xs bg-white/10 text-white/80 px-2 py-0.5 rounded backdrop-blur-sm">
+                    <span className="text-xs bg-white/20 text-white px-2 py-0.5 rounded backdrop-blur-sm font-medium">
                       {cs.industry}
                     </span>
                   </div>
                   {cs.isIllustrative && (
                     <div className="absolute top-3 right-3">
-                      <span className="text-xs bg-white/10 text-white/70 px-2 py-0.5 rounded backdrop-blur-sm">
+                      <span className="text-xs bg-white/20 text-white/90 px-2 py-0.5 rounded backdrop-blur-sm">
                         Illustrative
                       </span>
                     </div>
@@ -529,9 +567,17 @@ function PhilosophySection() {
   ];
 
   return (
-    <section className="section-padding bg-navy">
-      <div className="container-corporate">
-        <div className="max-w-3xl">
+    <section className="section-padding bg-navy relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `repeating-linear-gradient(135deg, transparent, transparent 50px, rgba(68,127,232,0.2) 50px, rgba(68,127,232,0.2) 51px)`
+        }} />
+      </div>
+      {/* Decorative gradient */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-professional-blue/10 to-transparent pointer-events-none" />
+      <div className="container-corporate relative">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -541,26 +587,44 @@ function PhilosophySection() {
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-white mb-6">
               Good decisions start with clear thinking.
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-lg text-white/70 mb-12 leading-relaxed">
+            <motion.p variants={fadeUp} className="text-lg text-white/70 mb-10 leading-relaxed">
               Complex challenges rarely benefit from unnecessary complexity. We help teams make sense of competing priorities, understand their options, and focus on the steps that move the work forward.
             </motion.p>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+              {principles.map((p, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="border-l-2 border-professional-blue pl-5"
+                >
+                  <h3 className="text-white font-semibold mb-1">{p.title}</h3>
+                  <p className="text-white/60 text-sm">{p.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            {principles.map((p, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="border-l-2 border-professional-blue pl-5"
-              >
-                <h3 className="text-white font-semibold mb-1">{p.title}</h3>
-                <p className="text-white/60 text-sm">{p.description}</p>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative hidden lg:block"
+          >
+            <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-2xl">
+              <img
+                src="https://image.qwenlm.ai/generated-images/04a489a0-ebfb-4668-b952-21899ffc6b88/_result.png"
+                alt="Strategic workspace with diagrams and planning materials"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -576,8 +640,11 @@ function InsightsSection() {
     : articles.filter(a => a.category === categoryFilter);
 
   return (
-    <section id="insights" className="section-padding bg-soft-grey">
-      <div className="container-corporate">
+    <section id="insights" className="section-padding bg-soft-grey relative overflow-hidden">
+      {/* Subtle decorative elements */}
+      <div className="absolute top-20 right-20 w-40 h-40 border border-border-grey/50 rounded-full pointer-events-none" />
+      <div className="absolute bottom-20 left-20 w-24 h-24 border border-border-grey/50 rounded-full pointer-events-none" />
+      <div className="container-corporate relative">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -616,38 +683,62 @@ function InsightsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((article, i) => (
-            <motion.article
-              key={article.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="bg-white rounded-lg p-6 border border-border-grey hover:border-professional-blue/30 hover:shadow-sm transition-all group"
-            >
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-medium text-professional-blue bg-pale-blue px-2 py-0.5 rounded">
-                  {article.category}
-                </span>
-                <span className="text-xs text-slate flex items-center gap-1">
-                  <Clock className="w-3 h-3" /> {article.readTime}
-                </span>
-              </div>
-              <h3 className="text-base font-semibold text-navy mb-2 group-hover:text-professional-blue transition-colors leading-snug">
-                {article.title}
-              </h3>
-              <p className="text-sm text-slate mb-4 line-clamp-3">{article.summary}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-slate flex items-center gap-1">
-                  <Calendar className="w-3 h-3" />
-                  {new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                </span>
-                <span className="text-xs font-medium text-professional-blue inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Read <ArrowRight className="w-3 h-3" />
-                </span>
-              </div>
-            </motion.article>
-          ))}
+          {filtered.map((article, i) => {
+            // Map articles to relevant images based on service area
+            const articleImages: Record<string, string> = {
+              'business-strategy': 'https://image.qwenlm.ai/generated-images/eb3a4785-1c2a-4cb3-a2bb-d12f741cceb6/_result.png',
+              'operational-excellence': 'https://image.qwenlm.ai/generated-images/8a167887-2faa-4ec7-bfda-e16ce448328c/_result.png',
+              'digital-transformation': 'https://image.qwenlm.ai/generated-images/8a8e5072-b761-42a2-80fd-3f320347c2d8/_result.png',
+              'organizational-change': 'https://image.qwenlm.ai/generated-images/2e23b6ac-c399-4afb-b921-eb684652327f/_result.png'
+            };
+            const articleImage = article.serviceId ? articleImages[article.serviceId] : null;
+
+            return (
+              <motion.article
+                key={article.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="bg-white rounded-lg border border-border-grey hover:border-professional-blue/30 hover:shadow-sm transition-all group overflow-hidden"
+              >
+                {articleImage && (
+                  <div className="h-36 overflow-hidden relative">
+                    <img
+                      src={articleImage}
+                      alt=""
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
+                  </div>
+                )}
+                <div className="p-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs font-medium text-professional-blue bg-pale-blue px-2 py-0.5 rounded">
+                      {article.category}
+                    </span>
+                    <span className="text-xs text-slate flex items-center gap-1">
+                      <Clock className="w-3 h-3" /> {article.readTime}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-semibold text-navy mb-2 group-hover:text-professional-blue transition-colors leading-snug">
+                    {article.title}
+                  </h3>
+                  <p className="text-sm text-slate mb-4 line-clamp-3">{article.summary}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-slate flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      {new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                    </span>
+                    <span className="text-xs font-medium text-professional-blue inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      Read <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </div>
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -657,8 +748,10 @@ function InsightsSection() {
 // ─── TEAM SECTION ───
 function TeamSection() {
   return (
-    <section id="about" className="section-padding bg-white">
-      <div className="container-corporate">
+    <section id="about" className="section-padding bg-white relative overflow-hidden">
+      {/* Subtle background gradient */}
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-pale-blue/20 to-transparent pointer-events-none" />
+      <div className="container-corporate relative">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -688,22 +781,27 @@ function TeamSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="border border-border-grey rounded-lg p-6 text-center"
+              className="border border-border-grey rounded-lg overflow-hidden hover:shadow-md transition-all group"
             >
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-navy to-professional-blue flex items-center justify-center">
-                <span className="text-white font-semibold text-lg">
-                  {member.name.split(' ').map(n => n[0]).join('')}
-                </span>
+              <div className="aspect-[3/4] overflow-hidden bg-soft-grey">
+                <img
+                  src={member.portrait}
+                  alt={`${member.name}, ${member.role}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
               </div>
-              <h3 className="font-semibold text-navy mb-1">{member.name}</h3>
-              <p className="text-sm text-professional-blue font-medium mb-3">{member.role}</p>
-              <p className="text-xs text-slate mb-3 leading-relaxed">{member.bio}</p>
-              <div className="flex flex-wrap gap-1 justify-center">
-                {member.expertise.slice(0, 2).map((e, j) => (
-                  <span key={j} className="text-xs bg-soft-grey text-graphite px-2 py-0.5 rounded">
-                    {e}
-                  </span>
-                ))}
+              <div className="p-5">
+                <h3 className="font-semibold text-navy mb-1">{member.name}</h3>
+                <p className="text-sm text-professional-blue font-medium mb-3">{member.role}</p>
+                <p className="text-xs text-slate mb-3 leading-relaxed line-clamp-3">{member.bio}</p>
+                <div className="flex flex-wrap gap-1">
+                  {member.expertise.slice(0, 2).map((e, j) => (
+                    <span key={j} className="text-xs bg-soft-grey text-graphite px-2 py-0.5 rounded">
+                      {e}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -752,8 +850,11 @@ function ReadinessAssessment({ onNavigate, onPrefillService }: { onNavigate: (se
   const result = showResult ? getAssessmentResult(answers) : null;
 
   return (
-    <section id="assessment" className="section-padding bg-pale-blue">
-      <div className="container-corporate max-w-3xl">
+    <section id="assessment" className="section-padding bg-pale-blue relative overflow-hidden">
+      {/* Subtle decorative elements */}
+      <div className="absolute top-10 left-10 w-32 h-32 border border-professional-blue/10 rounded-full pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-48 h-48 border border-professional-blue/10 rounded-full pointer-events-none" />
+      <div className="container-corporate max-w-3xl relative">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -959,8 +1060,12 @@ function ContactSection({ prefillService }: { prefillService?: string }) {
   }
 
   return (
-    <section id="contact" className="section-padding bg-white">
-      <div className="container-corporate">
+    <section id="contact" className="section-padding bg-soft-grey relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute top-0 right-0 w-1/3 h-full opacity-5 pointer-events-none">
+        <div className="w-full h-full bg-gradient-to-bl from-professional-blue to-transparent" />
+      </div>
+      <div className="container-corporate relative">
         <div className="grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
             <motion.div
@@ -1174,8 +1279,15 @@ function ContactSection({ prefillService }: { prefillService?: string }) {
 // ─── FOOTER ───
 function Footer({ onNavigate }: { onNavigate: (section: string) => void }) {
   return (
-    <footer className="bg-deep-navy text-white py-12 md:py-16">
-      <div className="container-corporate">
+    <footer className="bg-deep-navy text-white py-12 md:py-16 relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)`,
+          backgroundSize: '48px 48px'
+        }} />
+      </div>
+      <div className="container-corporate relative">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -1268,6 +1380,13 @@ function ServiceDetailModal({ serviceId, onClose, onNavigate }: { serviceId: str
 
   if (!service) return null;
 
+  const serviceImages: Record<string, string> = {
+    'business-strategy': 'https://image.qwenlm.ai/generated-images/eb3a4785-1c2a-4cb3-a2bb-d12f741cceb6/_result.png',
+    'operational-excellence': 'https://image.qwenlm.ai/generated-images/8a167887-2faa-4ec7-bfda-e16ce448328c/_result.png',
+    'digital-transformation': 'https://image.qwenlm.ai/generated-images/8a8e5072-b761-42a2-80fd-3f320347c2d8/_result.png',
+    'organizational-change': 'https://image.qwenlm.ai/generated-images/2e23b6ac-c399-4afb-b921-eb684652327f/_result.png'
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -1288,10 +1407,25 @@ function ServiceDetailModal({ serviceId, onClose, onNavigate }: { serviceId: str
         aria-modal="true"
         aria-label={`${service.title} details`}
       >
-        <div className="sticky top-0 bg-white border-b border-border-grey p-4 flex items-center justify-between z-10">
-          <div>
-            <p className="text-xs text-slate font-mono">{service.number}</p>
-            <h2 className="text-xl font-bold text-navy">{service.title}</h2>
+        {serviceImages[service.id] && (
+          <div className="h-40 relative overflow-hidden rounded-t-lg">
+            <img
+              src={serviceImages[service.id]}
+              alt={service.title}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/30 to-transparent" />
+            <div className="absolute bottom-4 left-6">
+              <p className="text-white/70 text-xs font-mono mb-1">{service.number}</p>
+              <h2 className="text-xl font-bold text-white">{service.title}</h2>
+            </div>
+          </div>
+        )}
+        <div className="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-border-grey p-4 flex items-center justify-between z-10">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-mono text-professional-blue bg-pale-blue px-2 py-0.5 rounded">{service.number}</span>
+            <span className="text-sm font-semibold text-navy">{service.title}</span>
           </div>
           <button
             onClick={onClose}
@@ -1463,6 +1597,15 @@ function CaseStudyDetailModal({ caseStudyId, onClose, onNavigate, onNavigateCase
         <div className="p-6 md:p-8 space-y-8">
           <div>
             <h2 className="text-2xl font-bold text-navy mb-4">{cs.title}</h2>
+          </div>
+
+          <div className="rounded-lg overflow-hidden">
+            <img
+              src={cs.image}
+              alt={cs.title}
+              className="w-full h-56 object-cover"
+              loading="lazy"
+            />
           </div>
 
           <div>
