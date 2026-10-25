@@ -159,18 +159,19 @@ The website implements comprehensive accessibility features:
 
 ## 🖼 Images
 
-The website uses 10 AI-generated images for a cohesive visual identity:
+The website uses 11 AI-generated images for a cohesive visual identity:
 
-1. **Hero Image** — Abstract architectural composition (navy/blue tones)
-2. **Case Study 1** — Modern office workspace (operational excellence)
-3. **Case Study 2** — Manufacturing facility (digital transformation)
-4. **Case Study 3** — Glass office building (strategic alignment)
-5. **Case Study 4** — Corporate boardroom (organizational change)
-6. **Philosophy Section** — Strategic workspace with diagrams
-7. **Team Portrait 1** — Sarah Chen (Managing Partner, Strategy)
-8. **Team Portrait 2** — Marcus Webb (Partner, Operations)
-9. **Team Portrait 3** — Elena Rodriguez (Partner, Digital & Technology)
-10. **Team Portrait 4** — David Okafor (Partner, Organizational Change)
+1. **Corporate Logo** — Professional minimalist logo design (used in header, footer, and mobile menu)
+2. **Hero Image** — Abstract architectural composition (navy/blue tones)
+3. **Case Study 1** — Modern office workspace (operational excellence)
+4. **Case Study 2** — Manufacturing facility (digital transformation)
+5. **Case Study 3** — Glass office building (strategic alignment)
+6. **Case Study 4** — Corporate boardroom (organizational change)
+7. **Philosophy Section** — Strategic workspace with diagrams
+8. **Team Portrait 1** — Sarah Chen (Managing Partner, Strategy)
+9. **Team Portrait 2** — Marcus Webb (Partner, Operations)
+10. **Team Portrait 3** — Elena Rodriguez (Partner, Digital & Technology)
+11. **Team Portrait 4** — David Okafor (Partner, Organizational Change)
 
 All images are optimized with:
 - Lazy loading for below-the-fold content

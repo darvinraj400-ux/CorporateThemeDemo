@@ -88,13 +88,14 @@ function Header({ onNavigate }: { onNavigate: (section: string) => void }) {
         <div className="container-corporate flex items-center justify-between h-16 md:h-18">
           <button
             onClick={() => handleNav('hero')}
-            className="flex items-center gap-2 font-semibold text-navy text-lg tracking-tight"
+            className="flex items-center"
             aria-label="Corporate Consulting - Home"
           >
-            <div className="w-8 h-8 bg-navy rounded-sm flex items-center justify-center">
-              <span className="text-white text-xs font-bold">CC</span>
-            </div>
-            <span className="hidden sm:inline">Corporate Consulting</span>
+            <img 
+              src="https://image.qwenlm.ai/generated-images/2b4ab06b-b8c1-4594-80d5-95d7629c9120/_result.png" 
+              alt="Corporate Consulting" 
+              className="h-10 md:h-12 w-auto"
+            />
           </button>
 
           <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
@@ -141,7 +142,11 @@ function Header({ onNavigate }: { onNavigate: (section: string) => void }) {
             aria-label="Mobile navigation"
           >
             <div className="flex items-center justify-between p-4">
-              <span className="text-white font-semibold text-lg">Corporate Consulting</span>
+              <img 
+                src="https://image.qwenlm.ai/generated-images/2b4ab06b-b8c1-4594-80d5-95d7629c9120/_result.png" 
+                alt="Corporate Consulting" 
+                className="h-10 w-auto"
+              />
               <button
                 onClick={() => setMobileOpen(false)}
                 className="p-2 text-white hover:text-pale-blue"
@@ -1290,11 +1295,12 @@ function Footer({ onNavigate }: { onNavigate: (section: string) => void }) {
       <div className="container-corporate relative">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-professional-blue rounded-sm flex items-center justify-center">
-                <span className="text-white text-xs font-bold">CC</span>
-              </div>
-              <span className="font-semibold">Corporate Consulting</span>
+            <div className="mb-4">
+              <img 
+                src="https://image.qwenlm.ai/generated-images/2b4ab06b-b8c1-4594-80d5-95d7629c9120/_result.png" 
+                alt="Corporate Consulting" 
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-sm text-white/60 leading-relaxed">
               Clarity for your next move. Independent consulting for organizations navigating complex business challenges.
